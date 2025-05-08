@@ -2,12 +2,15 @@
 
 A command line interface to dynamically poll and set aesthetic wallpapers sourced from [wallhaven.cc](https://www.wallhaven.cc) while updating system-wide colors using [pywal](https://github.com/dylanaraps/pywal).
 
+[demo.webm](https://github.com/user-attachments/assets/287378b5-2ccb-40f5-b369-5839bf341129)
+
+
 ## Usage
 
   ```bash
   autowal poll 
   ```
-  - Downloads the first page of wallpapers matching the parameters found in the `config.ini` file. the first wallpaper downloaded becomes the new wallpaper. Ignores if a poll has been done in the past day.
+  - Downloads the first page of wallpapers matching the parameters found in the `config.ini` file. The first wallpaper downloaded becomes the new wallpaper. Ignores if a poll has been done in the past day.
 
   ```bash
   autowal roll 
