@@ -27,9 +27,11 @@ A command line interface to dynamically poll and set aesthetic wallpapers source
   ```
   - A combination of both `poll` and `roll`. `poll` will execute if it's been at least one day since the last call. Otherwise, `roll` will choose a new wallpaper.
 
-## configuration
+## Configuration
 
-To customize the query of wallpapers from wallhaven.cc, please refer to the [documentation](https://wallhaven.cc/help/api) and update the values within `config.ini` accordingly. For ease of access, `autowal` can be bound to execute on startup, or by a keybind. For example, the following is the configuration for `autowal` execution when using `i3wm`, used within i3's `config` file.
+To customize the query of wallpapers from wallhaven.cc, please refer to the [documentation](https://wallhaven.cc/help/api) and update the values within `config.ini` accordingly. 
+
+For ease of access, `autowal` can be bound to execute on startup, or by a keybind. For example, the following is the configuration for `autowal` execution when using `i3wm`, used within i3's `config` file.
 
   ```bash
   exec_always --no-startup-id autowal
