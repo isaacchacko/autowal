@@ -17,7 +17,6 @@ os.makedirs(DATA_DIR, exist_ok=True)
 CONFIG_PATH = os.path.join(CONFIG_DIR, 'config.ini')
 LAST_POLL_PATH = os.path.join(CONFIG_DIR, 'last-poll.txt')
 LAST_WALLPAPER_PATH = os.path.join(CONFIG_DIR, 'last-wallpaper.txt')
-FALLBACK_WALLPAPER_PATH = os.path.join(CONFIG_DIR, 'fallback.jpg') 
 FORMAT = '%Y-%m-%d'
 
 BASE_REQUEST_URL = 'https://wallhaven.cc/api/v1/search?atleast={}&ratios={}&sorting={}&topRange={}'
@@ -28,30 +27,44 @@ atleast = 1920x1080
 ratios = 16x9
 sorting = toplist
 topRange = 1y
+
+[fallback]
+filepath = ~/Pictures/deadlock.jpg
 '''
 )
 
-def show_config():
-    print(f'\nCurrent configuration (found at {CONFIG_PATH}):')
-    print('Documentation can be found at https://wallhaven.cc/help/api\n')
-    with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
-        print(f.read())
-
-def retrieve_url():
-    '''
-    this function only returns the request url currently but can expand
-    when the config expands
-    '''
+def check_config_exists():
 
     if not os.path.isfile(CONFIG_DIR):
         with open(CONFIG_PATH, 'w') as f:
             f.write(FALLBACK_CONFIG)
+
+def show_config():
+
+    check_config_exists()
+
+    print(f'\nCurrent configuration (found at {CONFIG_PATH}):')
+    print('Documentation can be found at https://wallhaven.cc/help/api\n')
+
+    with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
+        print(f.read())
+
+def retrieve_url():
+
+    check_config_exists()
     
     config = configparser.ConfigParser()
     config.read(CONFIG_PATH)
     params = [config.get("wallhaven", i) for i in ["atleast", "ratios", "sorting", "topRange"]]
     return BASE_REQUEST_URL.format(*params)
         
+def retrieve_fallback_filepath():
+
+    check_config_exists()
+    
+    config = configparser.ConfigParser()
+    config.read(CONFIG_PATH)
+    return config.get("fallback", "filepath")
 
 def retrieve_wallpaper_urls():
 
@@ -123,13 +136,14 @@ def pick(choice=None):
 
     except Exception as e:
         
+        fallback_filepath = retrieve_fallback_filepath()
         print('Errors occurred while choosing a new wallpaper.')
-        print(f'Falling back to {FALLBACK_WALLPAPER_PATH}.')
+        print(f'Defaulting to fallback wallpaper set in config.ini ({fallback_filepath}).')
         
-        if not os.path.isfile(FALLBACK_WALLPAPER_PATH):
-            raise Exception("Fallback wallpaper not properly initialized.")
+        if not os.path.isfile(fallback_filepath):
+            raise Exception("Fallback filepath is not a valid file/filepath.")
 
-        subprocess.run(['wal', '-i', FALLBACK_WALLPAPER_PATH])
+        subprocess.run(['wal', '-i', fallback_filepath])
         raise e
     
 def main():
