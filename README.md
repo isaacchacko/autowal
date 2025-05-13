@@ -40,6 +40,7 @@ For ease of access, `autowal` can be bound to execute on startup, or by a keybin
 
 ## Dependencies
   - [pywal](https://github.com/dylanaraps/pywal). Correct configuration of `pywal`'s features is critical for proper `autowal` usage
+  - Unix operating systems are preferred. Windows users will lack complete functionality, and will have to manually set their fallback image filepath.
 
 ## Installation
 
