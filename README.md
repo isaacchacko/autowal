@@ -70,3 +70,7 @@ If that doesn't work, try compiling locally.
    cd ..
    rm -rf autowal
    ```
+
+## Issues
+
+There is a known issue between the [pywal](https://github.com/dylanaraps/pywal) library and Windows, especially with changing the background. Although `autowal` will still continue to download/cycle new color schemes with Windows computers, the background will not change. There is a fork of `pywal` called [winwal](https://github.com/scaryrawr/winwal) which does seem to fix matters, although this code is not incorporated into `autowal`.
