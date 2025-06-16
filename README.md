@@ -2,6 +2,7 @@
 
 A command line interface to dynamically poll and set aesthetic wallpapers sourced from [wallhaven.cc](https://www.wallhaven.cc) while updating system-wide colors using [pywal](https://github.com/dylanaraps/pywal).
 
+[demo.webm](https://github.com/user-attachments/assets/287378b5-2ccb-40f5-b369-5839bf341129)
 <video src="https://raw.githubusercontent.com/isaacchacko/autowal/main/demo.webm" width="320" controls></video>
 
 ## Usage
