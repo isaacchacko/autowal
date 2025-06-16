@@ -1,6 +1,8 @@
-# autowal
+# Autowal: A CLI tool
 
-A command line interface to dynamically poll and set aesthetic wallpapers sourced from [wallhaven.cc](https://www.wallhaven.cc) while updating system-wide colors using [pywal](https://github.com/dylanaraps/pywal).
+Ever been bored of your same old wallpaper, but too lazy to constantly change it? Introducing `autowal`, a command line interface to dynamically poll and set aesthetic wallpapers sourced from [wallhaven.cc](https://www.wallhaven.cc) for **Mac** and **Linux**.
+
+Still bored? `autowal` also automatically updates your system-wide colors based on the dominant colors found in the wallpaper using [pywal](https://github.com/dylanaraps/pywal)!
 
 [demo.webm](https://github.com/user-attachments/assets/287378b5-2ccb-40f5-b369-5839bf341129)
 
