@@ -4,7 +4,7 @@ A command line interface to dynamically poll and set aesthetic wallpapers source
 
 [demo.webm](https://github.com/user-attachments/assets/287378b5-2ccb-40f5-b369-5839bf341129)
 
-<video src="https://raw.githubusercontent.com/isaacchacko/autowal/main/demo.webm" width="320" controls></video>
+<video src="https://raw.githubusercontent.com/isaacchacko/autowal/main/demo.webm" style="width:100%; height: auto;" controls></video>
 
 ## Usage
 
